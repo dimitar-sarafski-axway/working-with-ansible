@@ -2,16 +2,20 @@
 # tasks file for terraform
 - name: create directory for terraform
   file:
-    path: '{{ terraform_binary_dir }}'
+    path: '{{ terraform_install_dir }}'
     state: directory
     mode: 0755
 - name: download terraform...
   get_url:
     url: '{{ terraform_url }}'
-    dest: '{{ terraform_install_dir }}'
+    dest: '{{terraform_install_dir}}'
     mode: 0644
 - name: unarchive terraform...
   unarchive:
     remote_src: yes
     src: '{{ terraform_install_dir }}/terraform_0.12.7_linux_amd64.zip'
     dest: '{{ terraform_install_dir }}'
+- name: Clean zip file after unarchive
+  file:
+    state: absent
+    path: '{{ terraform_install_dir }}/terraform_0.12.7_linux_amd64.zip'
