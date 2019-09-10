@@ -1,0 +1,8 @@
+---
+- name: install terraform with predifined role 
+  hosts: localhost
+
+  roles:
+    - ../ansible-roles/sarafski
+
+

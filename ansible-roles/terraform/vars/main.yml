@@ -1,4 +1,0 @@
----
-# vars file for terraform
-terraform_binary_dir: '{{install_dir}}/{{terraform_ver}}'
-
