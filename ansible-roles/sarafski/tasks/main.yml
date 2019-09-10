@@ -19,3 +19,7 @@
   file:
     state: absent
     path: '{{ terraform_install_dir }}/terraform_0.12.7_linux_amd64.zip'
+- name: Check Terraform version
+  command: "terraform -v"
+  register: outputofterraformversion
+- debug: var=outputofterraformversion.stdout_lines
